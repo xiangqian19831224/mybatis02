@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 注释快捷键： ctrl+shift+/ default与id值保持一致 -->
+	<environments default="mysql">
+		<!-- enviroment代表的是环境 -->
+		<environment id="mysql">
+			<!-- transactionManager: 代表数据库事务 type:值统一使用JDBC -->
+			<transactionManager type="JDBC"></transactionManager>
+			<!-- dataSource:代表的是数据源，数据源中需要配置driver、url、username、password等信息 type: 
+				POOLED -->
+			<dataSource type="POOLED">
+				<!-- 配置数据库驱动 -->
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<!-- 配置url -->
+				<property name="url"
+					value="jdbc:mysql://120.27.12.173:3306/mybatis?useUnicode=true&amp;characterEncoding=utf8" />
+				<!-- 配置用户名 -->
+				<property name="username" value="lxq" />
+				<!-- 配置密码 -->
+				<property name="password" value="Lxq410221@5214" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 可以通过mapper标签将主配置文件Mybatis.xml与局部配置文件关联起来 -->
+	<mappers>
+		<mapper resource="cn/java/dao/impl/ComputerDaoImpl.xml" />
+	</mappers>
+
+</configuration>
